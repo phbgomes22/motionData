@@ -14,6 +14,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var theDice: UIImageView!
     
+    
+    // model
+    let rollDiceModel = RollDiceModel()
+    
     // for ML => [0,50] => tamanho da janela para comparar com o modelo
     var currentIndexInPredictionWindow = 0
     
@@ -36,6 +40,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        DispatchQueue.global().async {
+            
+            self.startMotionSensor()
+            
+            while(true){
+                self.getSensorSamples()
+                usleep(useconds_t(ModelConstants.sensorsUpdateInterval*1000000))
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+         self.stopMotionSensor()
     }
 
     
@@ -56,6 +75,7 @@ class ViewController: UIViewController {
         motionManager.startAccelerometerUpdates()
         motionManager.startGyroUpdates()
         
+        
     }
     
     
@@ -65,18 +85,20 @@ class ViewController: UIViewController {
         
         // perform model prediction
         
-        let modelPrediction = try? activityClassificationModel.prediction(features: dataArray, hiddenIn: lastHiddenOutput, cellIn: lastHiddenCellOutput)
+        let modelPrediction = try? rollDiceModel.prediction(features: dataArray, hiddenIn: lastHiddenOutput, cellIn: lastHiddenCellOutput)
         
         // update the state vectors
         lastHiddenOutput = modelPrediction?.hiddenOut
         lastHiddenCellOutput = modelPrediction?.cellOut
         
+        print(modelPrediction?.activityProbability)
+        
         // return the predicted activity -- the activity with the highest probability
         return modelPrediction?.activity
     }
     
-    
-    func getSensorSamples(monitoredExercise: String) -> Bool {
+    @discardableResult
+    func getSensorSamples() -> Bool {
         guard let dataArray = predictionWindowDataArray  else {
             return false
         }
@@ -131,10 +153,11 @@ class ViewController: UIViewController {
             let predictedActivity = performModelPrediction() ?? "N/A"
             
             // user the predicted activity here
+            print(predictedActivity)
             
-            if((predictedActivity ==  "roll_dice") ){
+            if(predictedActivity ==  "roll_dice"){
                 
-               
+                self.rollTheDice()
                 
             }
             // start a new prediction window
@@ -145,5 +168,27 @@ class ViewController: UIViewController {
         
         return false
     }
+    
+    func rollTheDice() {
+        
+        var i = 0
+        
+        while(i < 20){
+            let num = arc4random_uniform(6) + 1
+            
+            let image = UIImage(named: "dice-\(num)")
+            
+            DispatchQueue.main.sync {
+               self.theDice.image = image!
+            }
+            
+        
+            i += 1
+            usleep(125000)
+        }
+            
+        
+    }
+    
 }
 

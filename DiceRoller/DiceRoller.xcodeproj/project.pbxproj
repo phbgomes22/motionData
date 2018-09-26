@@ -12,6 +12,8 @@
 		4228463B215BF56F006ECB0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42284639215BF56F006ECB0F /* Main.storyboard */; };
 		4228463D215BF56F006ECB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4228463C215BF56F006ECB0F /* Assets.xcassets */; };
 		42284640215BF56F006ECB0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228463E215BF56F006ECB0F /* LaunchScreen.storyboard */; };
+		42C445ED215C12BF00E1E97D /* ModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C445EC215C12BF00E1E97D /* ModelConstants.swift */; };
+		42C445EF215C18A100E1E97D /* RollDiceModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 42C445EE215C18A000E1E97D /* RollDiceModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		4228463C215BF56F006ECB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4228463F215BF56F006ECB0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42284641215BF56F006ECB0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42C445EC215C12BF00E1E97D /* ModelConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelConstants.swift; sourceTree = "<group>"; };
+		42C445EE215C18A000E1E97D /* RollDiceModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = RollDiceModel.mlmodel; path = "../../python Code/RollDiceModel.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,40 @@
 		42284634215BF56F006ECB0F /* DiceRoller */ = {
 			isa = PBXGroup;
 			children = (
+				42C445EE215C18A000E1E97D /* RollDiceModel.mlmodel */,
+				42284649215BF61B006ECB0F /* Controller */,
+				42284648215BF617006ECB0F /* View */,
+				42284647215BF610006ECB0F /* Model */,
 				42284635215BF56F006ECB0F /* AppDelegate.swift */,
-				42284637215BF56F006ECB0F /* ViewController.swift */,
-				42284639215BF56F006ECB0F /* Main.storyboard */,
 				4228463C215BF56F006ECB0F /* Assets.xcassets */,
-				4228463E215BF56F006ECB0F /* LaunchScreen.storyboard */,
 				42284641215BF56F006ECB0F /* Info.plist */,
 			);
 			path = DiceRoller;
+			sourceTree = "<group>";
+		};
+		42284647215BF610006ECB0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42C445EC215C12BF00E1E97D /* ModelConstants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42284648215BF617006ECB0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4228463E215BF56F006ECB0F /* LaunchScreen.storyboard */,
+				42284639215BF56F006ECB0F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42284649215BF61B006ECB0F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42284637215BF56F006ECB0F /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C445EF215C18A100E1E97D /* RollDiceModel.mlmodel in Sources */,
+				42C445ED215C12BF00E1E97D /* ModelConstants.swift in Sources */,
 				42284638215BF56F006ECB0F /* ViewController.swift in Sources */,
 				42284636215BF56F006ECB0F /* AppDelegate.swift in Sources */,
 			);
