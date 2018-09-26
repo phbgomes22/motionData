@@ -20,4 +20,4 @@ print (metrics['accuracy'])
 model.save('mymodel.model')
 
 # Export for use in Core ML
-model.export_coreml('MyActivityClassifier.mlmodel')
+model.export_coreml('RollDiceModel.mlmodel')
