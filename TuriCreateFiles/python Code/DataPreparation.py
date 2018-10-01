@@ -1,7 +1,12 @@
 # import Turi Create
 import turicreate as tc
 
-# define data directory
+#   -   -   -   -   -   -   -   -   -   -   -
+#
+# Define onde estao os dados a serem utilizados
+#
+#   -   -   -   -   -   -   -   -   -   -   -
+
 data_dir = '../Data/RawData/'
 
 # define fine label for containing interval
@@ -52,10 +57,14 @@ for acc_file, gyro_file in files:
 print data
 print '\n\n\n'
 
+#
+#   mude o target_map para dizer quais atividades quer reconhecer
+#
 target_map = {
     1.: 'roll_dice',
     2.: 'others'
 }
+
 # Use the same labels used in the experiment
 data = data.filter_by(target_map.keys(), 'activity_id')
 data['activity'] = data['activity_id'].apply(lambda x: target_map[x])

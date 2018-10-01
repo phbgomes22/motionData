@@ -9,6 +9,10 @@ train, test = tc.activity_classifier.util.random_split_by_session(data, session_
 # define features
 features = ['acc_x', 'acc_y', 'acc_z', 'gyro_x', 'gyro_y', 'gyro_z']
 
+#
+#   predition_window => leituras por segundo
+#
+
 # create an activity classifier
 model = tc.activity_classifier.create(train, session_id='exp_id', target='activity', features=features, prediction_window=50, max_iterations=20)
 
@@ -19,5 +23,10 @@ print (metrics['accuracy'])
 # Save the model for later use in Turi Create
 model.save('mymodel.model')
 
-# Export for use in Core ML
+
+#   -   -   -   -   -   -   -   -   -   -
+#
+#   Exporta para um modelo do CoreML
+#
+#   -   -   -   -   -   -   -   -   -   -
 model.export_coreml('RollDiceModel.mlmodel')
