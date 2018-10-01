@@ -17,30 +17,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rk9-y4-FsC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="904"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice-1" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-NG-keS">
+                                <rect key="frame" x="127" y="243.5" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="vfx-yM-wMM"/>
+                                    <constraint firstAttribute="width" constant="160" id="wvw-mY-oZR"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dice-1" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-NG-keS">
-                                <rect key="frame" x="127" y="277" width="160" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Roll the dice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ga-mP-opc">
-                                <rect key="frame" x="26" y="644" width="362" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roll the dice!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ga-mP-opc">
+                                <rect key="frame" x="52.5" y="527" width="309" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="309" id="Ugm-aC-ODl"/>
+                                    <constraint firstAttribute="height" constant="110" id="i2W-ED-dtF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="47"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.080200634999910245" green="0.22363188969111747" blue="0.056102642304462789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rk9-y4-FsC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8a6-6D-6VP"/>
-                            <constraint firstItem="rk9-y4-FsC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gEx-41-AJ3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rk9-y4-FsC" secondAttribute="trailing" id="iza-6r-Dib"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rk9-y4-FsC" secondAttribute="bottomMargin" id="sLv-94-h4L"/>
+                            <constraint firstItem="6Ga-mP-opc" firstAttribute="top" secondItem="PEt-NG-keS" secondAttribute="bottom" constant="123.5" id="6Qe-Ww-6Zg"/>
+                            <constraint firstItem="PEt-NG-keS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="80J-Ik-uSy"/>
+                            <constraint firstItem="6Ga-mP-opc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="C7k-kw-3Ls"/>
+                            <constraint firstItem="PEt-NG-keS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1:1.4" id="piu-61-Q9y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="rollDiceLabel" destination="6Ga-mP-opc" id="pLL-J5-nIF"/>
                         <outlet property="theDice" destination="PEt-NG-keS" id="0PL-n0-Xam"/>
                     </connections>
                 </viewController>
@@ -50,7 +55,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="1000" height="1000"/>
         <image name="dice-1" width="684.47998046875" height="696.47998046875"/>
     </resources>
 </document>

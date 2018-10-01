@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var theDice: UIImageView!
     
+    @IBOutlet weak var rollDiceLabel: UILabel!
     
     // model
     let rollDiceModel = RollDiceModel()
@@ -171,6 +172,10 @@ class ViewController: UIViewController {
     
     func rollTheDice() {
         
+        DispatchQueue.main.sync {
+            rollDiceLabel.text = "Rolling..."
+        }
+        
         var i = 0
         
         while(i < 20){
@@ -186,8 +191,11 @@ class ViewController: UIViewController {
             i += 1
             usleep(125000)
         }
-            
+        DispatchQueue.main.sync {
         
+            
+            rollDiceLabel.text = "Roll the dice!"
+        }
     }
     
 }
