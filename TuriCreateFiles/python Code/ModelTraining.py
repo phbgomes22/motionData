@@ -14,7 +14,12 @@ features = ['acc_x', 'acc_y', 'acc_z', 'gyro_x', 'gyro_y', 'gyro_z']
 #
 
 # create an activity classifier
-model = tc.activity_classifier.create(train, session_id='exp_id', target='activity', features=features, prediction_window=50, max_iterations=20)
+model = tc.activity_classifier.create(
+    train, session_id='exp_id',
+    target='activity',
+    features=features,
+    prediction_window=50,
+    max_iterations=20)
 
 # evaluate the model and save result into dictionary
 metrics = model.evaluate(test)
